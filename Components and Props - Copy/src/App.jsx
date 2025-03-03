@@ -1,12 +1,17 @@
-import reactCoreConceptsImage from "./assets/react-core-concepts.png";
-import CoreConcept from "./components/CoreConcepts.jsx";
+import { useState } from "react";
 
+import reactCoreConceptsImage from "./assets/react-core-concepts.png";
+import CoreConcept from "./components/CoreConcept.jsx";
+import TabButton from "./components/TabButton.jsx";
 import "./data.js";
 import { CORE_CONCEPTS } from "./data.js";
-import Header from "./components/Header.jsx";
+import Header from "./components/Header/Header.jsx";
 ("./components/Header.jsx");
 
 function App() {
+  function handleSelect(selectedButton){
+    console.log(selectedButton)
+}
   return (
     <div>
       <Header />
@@ -25,6 +30,15 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[2]}></CoreConcept>
             <CoreConcept {...CORE_CONCEPTS[3]}></CoreConcept>
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={() => handleSelect("components")}>COMPONENTS</TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>PROPS</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>STATE</TabButton>
+          </menu>
         </section>
         <h2>Time to get started!</h2>
       </main>
